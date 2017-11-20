@@ -1,4 +1,4 @@
-#include "ClassProjectHead.h"
+#include "head\ClassProjectHead.h"
 
 void Lab2Main() {
 	Mat im1 = imread("Images\\lena.tiff");

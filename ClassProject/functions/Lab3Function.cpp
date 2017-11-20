@@ -1,4 +1,4 @@
-#include "ClassProjectHead.h"
+#include "head\ClassProjectHead.h"
 
 
 void Lab3Main() {

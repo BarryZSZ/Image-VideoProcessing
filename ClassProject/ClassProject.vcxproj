@@ -19,22 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ClassProjectHead.h" />
-    <ClInclude Include="CourseProject1Name.h" />
-    <ClInclude Include="Lab1FunctionName.h" />
-    <ClInclude Include="Lab2FunctionName.h" />
-    <ClInclude Include="Lab3FunctionName.h" />
-    <ClInclude Include="Lab4FunctionName.h" />
-    <ClInclude Include="Lab5FunctionName.h" />
+    <ClCompile Include="functions\CourseProject1Function.cpp" />
+    <ClCompile Include="functions\Lab1Function.cpp" />
+    <ClCompile Include="functions\Lab2Function.cpp" />
+    <ClCompile Include="functions\Lab3Function.cpp" />
+    <ClCompile Include="functions\Lab4Funtion.cpp" />
+    <ClCompile Include="functions\Lab5Function.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CourseProject1Function.cpp" />
-    <ClCompile Include="Lab1Function.cpp" />
-    <ClCompile Include="Lab2Function.cpp" />
-    <ClCompile Include="Lab3Function.cpp" />
-    <ClCompile Include="Lab4Funtion.cpp" />
-    <ClCompile Include="Lab5Function.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="functions\head\ClassProjectHead.h" />
+    <ClInclude Include="functions\head\CourseProject1Name.h" />
+    <ClInclude Include="functions\head\Lab1FunctionName.h" />
+    <ClInclude Include="functions\head\Lab2FunctionName.h" />
+    <ClInclude Include="functions\head\Lab3FunctionName.h" />
+    <ClInclude Include="functions\head\Lab4FunctionName.h" />
+    <ClInclude Include="functions\head\Lab5FunctionName.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C2B9EB0-6D2D-4181-9CD6-39971FB6E0C6}</ProjectGuid>
@@ -98,6 +98,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\University\课件\图像与视频处理\lab\ClassProject\ClassProject\head;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

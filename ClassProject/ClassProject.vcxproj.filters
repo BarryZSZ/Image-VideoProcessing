@@ -15,49 +15,49 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Lab1FunctionName.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab2FunctionName.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab3FunctionName.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab4FunctionName.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ClassProjectHead.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Lab5FunctionName.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CourseProject1Name.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Lab1Function.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab2Function.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab3Function.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Lab4Funtion.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Lab5Function.cpp">
+    <ClCompile Include="functions\CourseProject1Function.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CourseProject1Function.cpp">
+    <ClCompile Include="functions\Lab1Function.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="functions\Lab2Function.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="functions\Lab3Function.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="functions\Lab4Funtion.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="functions\Lab5Function.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="functions\head\ClassProjectHead.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\CourseProject1Name.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\Lab1FunctionName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\Lab2FunctionName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\Lab3FunctionName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\Lab4FunctionName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="functions\head\Lab5FunctionName.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

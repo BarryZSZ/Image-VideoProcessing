@@ -1,4 +1,4 @@
-#include "ClassProjectHead.h"
+#include "functions\head\ClassProjectHead.h"
 
 void main() {
 	//Lab1Main();

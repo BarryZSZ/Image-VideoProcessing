@@ -1,4 +1,4 @@
-#include "ClassProjectHead.h"
+#include "head\ClassProjectHead.h"
 
 void CourseProject1Main() {
 	Mat I1 = imread("Images\\lena.pgm", 0);
@@ -39,7 +39,7 @@ void CourseProject1Main() {
 	imshow("Bridge Gaussian Filter", I6);
 
 	//Question 4
-	Mat I5, I6, histI;
+	Mat histI;
 	MatND hist;
 	I5 = AddRandNoise(I1, 0.1, 0, 255);
 	imshow("Lena Added Noise", I5);
