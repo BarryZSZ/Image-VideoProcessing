@@ -14,33 +14,33 @@ void Lab4Main() {
 	imshow("fingerprint1", I1);
 	Mat I_O1 = IDHP(I1, 40);
 	imshow("IDHP D0 = 40 (1)", I_O1);
-	I_O1 = OtusBinarization(I_O1);
+	I_O1 = OtsuBinarization(I_O1);
 	imshow("Thresholding IDHP D0 = 40 (1)", I_O1);
 
 	I_O1 = BHP(I1, 40, 1);
 	imshow("BHP D0 = 40 (1)", I_O1);
-	I_O1 = OtusBinarization(I_O1);
+	I_O1 = OtsuBinarization(I_O1);
 	imshow("Thresholding BHP D0 = 40 (1)", I_O1);
 
 	I_O1 = GHP(I1, 40);
 	imshow("GHP D0 = 40 (1)", I_O1);
-	I_O1 = OtusBinarization(I_O1);
+	I_O1 = OtsuBinarization(I_O1);
 	imshow("Thresholding GHP D0 = 40 (1)", I_O1);
 
 	imshow("fingerprint2", I2);
 	Mat I_O2 = IDHP(I2, 40);
 	imshow("IDHP D0 = 40 (2)", I_O2);
-	I_O2 = OtusBinarization(I_O2);
+	I_O2 = OtsuBinarization(I_O2);
 	imshow("Thresholding IDHP D0 = 40 (2)", I_O2);
 
 	I_O2 = BHP(I2, 40, 4);
 	imshow("BHP D0 = 40 ()", I_O2);
-	I_O2 = OtusBinarization(I_O2);
+	I_O2 = OtsuBinarization(I_O2);
 	imshow("Thresholding BHP D0 = 40 (2)", I_O2);
 
 	I_O2 = GHP(I2, 40);
 	imshow("GHP D0 = 40 (2)", I_O2);
-	I_O2 = OtusBinarization(I_O2);
+	I_O2 = OtsuBinarization(I_O2);
 	imshow("Thresholding GHP D0 = 40 (2)", I_O2);
 
 	//The second question

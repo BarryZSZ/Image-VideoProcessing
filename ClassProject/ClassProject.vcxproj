@@ -25,6 +25,9 @@
     <ClCompile Include="functions\Lab3Function.cpp" />
     <ClCompile Include="functions\Lab4Funtion.cpp" />
     <ClCompile Include="functions\Lab5Function.cpp" />
+    <ClCompile Include="functions\Lab6Function.cpp" />
+    <ClCompile Include="functions\Lab7Function.cpp" />
+    <ClCompile Include="functions\Lab8Function.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +38,9 @@
     <ClInclude Include="functions\head\Lab3FunctionName.h" />
     <ClInclude Include="functions\head\Lab4FunctionName.h" />
     <ClInclude Include="functions\head\Lab5FunctionName.h" />
+    <ClInclude Include="functions\head\Lab6FunctionName.h" />
+    <ClInclude Include="functions\head\Lab7FunctionName.h" />
+    <ClInclude Include="functions\head\Lab8FunctionName.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C2B9EB0-6D2D-4181-9CD6-39971FB6E0C6}</ProjectGuid>

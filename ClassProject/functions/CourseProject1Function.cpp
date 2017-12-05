@@ -20,7 +20,7 @@ void CourseProject1Main() {
 	imshow("Gama = 2", I4);
 	
 	//Question 2
-	Q2();
+	//CourseProject1Q2();
 
 	//Question 3
 	Mat Averagemask(3, 3, CV_8U, Scalar::all(1));
@@ -94,10 +94,12 @@ void CourseProject1Main() {
 	imshow("Plant", I7);
 	Mat unsharpmask = (Mat_<uchar>(3, 3) << 1, 2, 1, 2, 4, 2, 1, 2, 1);
 	Mat Masked = SpatialFilter(I7, unsharpmask);
+	Masked.convertTo(Masked, CV_32F);
 	I7.convertTo(I7, CV_32F);
 	Mat Mask = I7 - Masked;	
 	Mat I8 = I7 + Mask;
 	I8.convertTo(I8, CV_8U);
+	cout << "11111111111" << endl;
 	Mat I9 = I7 + 2 * Mask;
 	I9.convertTo(I9, CV_8U);
 	Mask.convertTo(Mask, CV_8U);
@@ -268,7 +270,7 @@ int GetThreshold(MatND hist) {
 	return maxI[0];
 }
 
-void Q2() {
+void CourseProject1Q2() {
 	Mat BackG = GenerateBackground(256, 256, 200, 220, 10, 210);
 	imshow("Background", BackG);
 	Mat Object = GenerateBackground(100, 100, 80, 100, 10, 90);

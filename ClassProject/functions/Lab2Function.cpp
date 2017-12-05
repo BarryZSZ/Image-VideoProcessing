@@ -35,8 +35,8 @@ void Lab2Main() {
 	imshow("MedianFilter 3*3", im_o17);
 	im_o17 = MedianFilter(im, 5, 5);
 	imshow("MedianFilter 5*5", im_o17);
-	Mat im_o18 = OtusBinarization(im);
-	imshow("OtusBinarization", im_o18);
+	Mat im_o18 = OtsuBinarization(im);
+	imshow("OtsuBinarization", im_o18);
 
 	Mat im_o7 = LaplacianOperators(im, -1);
 	imshow("Laplacian", im_o7);
@@ -62,8 +62,8 @@ void Lab2Main() {
 	imshow("LocalHistogram 5*5", im_o16);
 	Mat im_o19 = MedianFilter(im, 5, 5);
 	imshow("MedianFilter 3*3", im_o17);
-	Mat im_o20 = OtusBinarization(im);
-	imshow("OtusBinarization", im_o18);
+	Mat im_o20 = OtsuBinarization(im);
+	imshow("OtsuBinarization", im_o20);
 	waitKey(0);
 }
 /*@para: srcImage is the Source Image
@@ -216,128 +216,59 @@ Mat AveragingFilter(Mat srcImage, int wsize) {
 
 /*@para: srcImage is the source Image
 wsize is the window size*/
-//Mat MedianFilter(Mat srcImage, int wsize) {
-//	if (!srcImage.data) {
-//		cout << "Error: The image is empty..." << endl;
-//	}
-//	Mat dstImage = srcImage.clone();
-//	int i, j, m, n, k, p, q;
-//	int d = wsize / 2;
-//	int rows = srcImage.rows;
-//	int cols = srcImage.cols;
-//	int channels = srcImage.channels();
-//	int halve = wsize*wsize / 2;
-//	int left_count = wsize*wsize;
-//	int right_count = wsize*wsize;
-//	int median_num;
-//	uchar* pdstData;
-//	uchar* psrcData;
-//	uchar* psrcData1;
-//	Mat mask(wsize, wsize, srcImage.type());
-//	for (i = d; i < rows - d; i++) {
-//		pdstData = dstImage.ptr<uchar>(i);
-//		for (j = d; j < cols - d; j++) {
-//			for (k = 0; k < channels; k++) {
-//				m = 0;
-//				while (m < wsize) {
-//					psrcData = srcImage.ptr<uchar>(i + m - d);
-//					n = 0;
-//					while (n < wsize) {
-//						median_num = psrcData[(j + n - d)*channels + k];
-//						left_count = 0;
-//						right_count = 0;
-//						for (p = 0; p < wsize; p++) {
-//							psrcData1 = srcImage.ptr<uchar>(i + p - d);
-//							for (q = 0; q < wsize; q++) {
-//								if (median_num > psrcData1[(j + q - d)*channels + k]) {
-//									left_count++;
-//								}
-//								else if (median_num < psrcData1[(j + q - d)*channels + k]) {
-//									right_count++;
-//								}
-//							}
-//						}
-//						if (left_count <= halve&&right_count <= halve) {
-//							pdstData[j*channels + k] = median_num;
-//							break;
-//						}
-//						n++;
-//					}
-//					if (left_count <= halve&&right_count <= halve) {
-//						break;
-//					}
-//					m++;
-//				}
-//
-//			}
-//		}
-//	}
-//	return dstImage;
-//}
-
-/*@para: srcImage is the source Image*/
-Mat OtusBinarization(Mat srcImage) {
-	if (srcImage.channels() != 1) {
-		cvtColor(srcImage, srcImage, CV_RGB2GRAY, 0);
+Mat MedianFilter(Mat srcImage, int wsize) {
+	if (!srcImage.data) {
+		cout << "Error: The image is empty..." << endl;
 	}
-	double histogram[256];
+	Mat dstImage = srcImage.clone();
+	int i, j, m, n, k, p, q;
+	int d = wsize / 2;
 	int rows = srcImage.rows;
 	int cols = srcImage.cols;
-	int i, j, t;
-	for (i = 0; i < 256; i++) {
-		histogram[i] = 0.0;
-	}
-	uchar* psrcData;
-	for (i = 0; i < rows; i++) {
-		psrcData = srcImage.ptr<uchar>(i);
-		for (j = 0; j < cols; j++) {
-			histogram[psrcData[j]]++;
-		}
-	}
-	double average_value = 0;
-	double areaA;
-	double areaB;
-	double PA;
-	double PB;
-	double variance1, variance2;
-	int threshold;
-	for (i = 0; i < 256; i++) {
-		average_value = i*histogram[i] + average_value;
-	}
-	average_value = average_value / rows / cols;
-	areaA = 0;
-	areaB = average_value;
-	PA = 0;
-	PB = 1;
-	for (t = 0; t < 256; t++) {
-		areaA = t*histogram[t] / rows / cols + areaA;
-		PA = histogram[t] / rows / cols + PA;
-		areaB = areaB - t*histogram[t] / rows / cols;
-		PB = PB - histogram[t] / rows / cols;
-		if (t == 1) {
-			variance1 = PA*(areaA - average_value)*(areaA - average_value) + PB*(areaB - average_value)*(areaB - average_value);
-			variance2 = variance1;
-			threshold = 1;
-		}
-		else {
-			variance2 = PA*(areaA - average_value)*(areaA - average_value) + PB*(areaB - average_value)*(areaB - average_value);
-		}
-		if (variance2 > variance1) {
-			variance1 = variance2;
-			threshold = t;
-		}
-	}
-	Mat dstImage(rows, cols, CV_8UC1, Scalar::all(0));
+	int channels = srcImage.channels();
+	int halve = wsize*wsize / 2;
+	int left_count = wsize*wsize;
+	int right_count = wsize*wsize;
+	int median_num;
 	uchar* pdstData;
-	for (i = 0; i < rows; i++) {
-		psrcData = srcImage.ptr<uchar>(i);
+	uchar* psrcData;
+	uchar* psrcData1;
+	Mat mask(wsize, wsize, srcImage.type());
+	for (i = d; i < rows - d; i++) {
 		pdstData = dstImage.ptr<uchar>(i);
-		for (j = 0; j < cols; j++) {
-			if (psrcData[j] > threshold) {
-				pdstData[j] = 255;
-			}
-			else {
-				pdstData[j] = 0;
+		for (j = d; j < cols - d; j++) {
+			for (k = 0; k < channels; k++) {
+				m = 0;
+				while (m < wsize) {
+					psrcData = srcImage.ptr<uchar>(i + m - d);
+					n = 0;
+					while (n < wsize) {
+						median_num = psrcData[(j + n - d)*channels + k];
+						left_count = 0;
+						right_count = 0;
+						for (p = 0; p < wsize; p++) {
+							psrcData1 = srcImage.ptr<uchar>(i + p - d);
+							for (q = 0; q < wsize; q++) {
+								if (median_num > psrcData1[(j + q - d)*channels + k]) {
+									left_count++;
+								}
+								else if (median_num < psrcData1[(j + q - d)*channels + k]) {
+									right_count++;
+								}
+							}
+						}
+						if (left_count <= halve&&right_count <= halve) {
+							pdstData[j*channels + k] = median_num;
+							break;
+						}
+						n++;
+					}
+					if (left_count <= halve&&right_count <= halve) {
+						break;
+					}
+					m++;
+				}
+
 			}
 		}
 	}
